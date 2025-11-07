@@ -6,7 +6,7 @@ app = FastAPI()
 
 @app.get("/")
 async def root():
-    return {"message": "Service is alive"}
+    return FileResponse("index.html")
 
 @app.get("/static/pixel.png")
 async def track(request: Request):
