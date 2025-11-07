@@ -12,9 +12,9 @@ PIXEL_DATA = base64.b64decode(PIXEL_B64)
 async def root():
     return {"message": "Service is alive"}
 
-@app.get("/track")
-async def track(request: Request, data: str | None = None):
-    print(f"Received data: {data}")
+@app.get("/static/pixel.png")
+async def track(request: Request, p: str | None = None):
+    print(f"Received data: {p}")
     return Response(content=PIXEL_DATA, media_type="image/png")
 
 if __name__ == "__main__":
