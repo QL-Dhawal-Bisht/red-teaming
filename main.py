@@ -8,6 +8,10 @@ app = FastAPI()
 PIXEL_B64 = "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
 PIXEL_DATA = base64.b64decode(PIXEL_B64)
 
+@app.get("/")
+async def root():
+    return {"message": "Service is alive"}
+
 @app.get("/track")
 async def track(request: Request, data: str | None = None):
     print(f"Received data: {data}")
